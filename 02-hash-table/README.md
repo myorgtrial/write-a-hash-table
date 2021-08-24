@@ -38,7 +38,11 @@ strings `k` and `v` in the new chunk of memory. The function is marked as
 
 static ht_item* ht_new_item(const char* k, const char* v) {
     ht_item* i = malloc(sizeof(ht_item));
-    i->key = strdup(k);
+    i->key = strdup(k);  
+                           // This function is used to duplicate a string. 
+                          // Syntax : char *strdup(const char *s); 
+                         // This function returns a pointer to a null-terminated byte string, which is a duplicate of the string pointed to by s. The memory obtained is done                           // dynamically using malloc and hence it can be freed using free(). 
+                       // It returns a pointer to the duplicated string s.
     i->value = strdup(v);
     return i;
 }
@@ -57,7 +61,9 @@ ht_hash_table* ht_new() {
 
     ht->size = 53;
     ht->count = 0;
-    ht->items = calloc((size_t)ht->size, sizeof(ht_item*));
+    ht->items = calloc((size_t)ht->size, sizeof(ht_item*));    // size_t is an unsigned integral data type which is defined in various header files such as <stdlib.h>,     
+                                                              // <stdio.h> , <string.h> . It is guaranteed to be big enough to contain the size of the biggest object the host  
+                                                             // system can handle.
     return ht;
 }
 ```
