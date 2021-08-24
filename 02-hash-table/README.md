@@ -64,6 +64,8 @@ ht_hash_table* ht_new() {
     ht->items = calloc((size_t)ht->size, sizeof(ht_item*));    // size_t is an unsigned integral data type which is defined in various header files such as <stdlib.h>,     
                                                               // <stdio.h> , <string.h> . It is guaranteed to be big enough to contain the size of the biggest object the host  
                                                              // system can handle.
+                                                            // Calloc ptr = (cast-type*)calloc(n, element-size); here, n is the no. of elements and element-size is the size of 
+                                                           // each element. Calloc initializes each block with a default value ‘0’.(malloc doesn't)  
     return ht;
 }
 ```
