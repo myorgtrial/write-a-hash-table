@@ -20,9 +20,9 @@ the next section.
 ```c
 // hash_table.c
 void ht_insert(ht_hash_table* ht, const char* key, const char* value) {
-    ht_item* item = ht_new_item(key, value);
-    int index = ht_get_hash(item->key, ht->size, 0);
-    ht_item* cur_item = ht->items[index];
+    ht_item* item = ht_new_item(key, value);         // pointer to new item created by ht_new_item funtion
+    int index = ht_get_hash(item->key, ht->size, 0); // getting the index upon hashing
+    ht_item* cur_item = ht->items[index];            
     int i = 1;
     while (cur_item != NULL) {
         index = ht_get_hash(item->key, ht->size, i);
